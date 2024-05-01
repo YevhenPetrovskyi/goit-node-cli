@@ -5,9 +5,8 @@ import crypto from 'crypto';
 const contactsPath = path.resolve('db', 'contacts.json');
 
 export async function listContacts() {
-  const data = await fs.readFile(contactsPath);
-  const contacts = JSON.parse(data);
-  return contacts;
+  const data = await fs.readFile(contactsPath, { encoding: 'utf-8' });
+  return  JSON.parse(data);
 }
 
 export async function getContactById(contactId) {
